@@ -1,0 +1,133 @@
+body{
+    margin:0;
+    font-family:Poppins;
+    display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:220px;
+    background:#111;
+    color:white;
+    height:100vh;
+    padding:20px;
+}
+
+.sidebar li{
+    padding:10px;
+    cursor:pointer;
+}
+
+.sidebar li:hover{
+    background:#333;
+}
+
+/* MAIN */
+.main{
+    flex:1;
+    padding:20px;
+    background:#f4f4f4;
+}
+
+.page{display:none;}
+.page.active{display:block}
+
+/* BOARD */
+.board{
+    display:flex;
+    gap:15px;
+}
+
+.col{
+    flex:1;
+    background:white;
+    padding:10px;
+    border-radius:10px;
+}
+
+/* ORDER CARD */
+.card{
+    background:#fff;
+    padding:10px;
+    margin:10px 0;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+.card.delay{
+    border-left:5px solid red;
+    background:#ffecec;
+}
+
+.tag{
+    padding:3px 6px;
+    color:white;
+    font-size:10px;
+    border-radius:5px;
+}
+
+.priority{background:orange;}
+.urgent{background:red;}
+
+button{
+    padding:5px;
+    border:none;
+    background:#ff5a5f;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+.card{
+    background:#fff;
+    padding:12px;
+    margin:10px 0;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card.priority{
+    border-left:5px solid orange;
+}
+
+.card.urgent{
+    border-left:5px solid red;
+}
+
+.tag{
+    display:inline-block;
+    padding:3px 8px;
+    font-size:10px;
+    color:white;
+    border-radius:5px;
+    margin-right:5px;
+}
+
+.priority-tag{background:orange;}
+.urgent-tag{background:red;}
+
+.items{
+    font-size:14px;
+    margin:5px 0;
+}
+
+.time{
+    font-size:12px;
+    color:#666;
+}
+.timer{
+    font-weight:bold;
+}
+
+.estimate{
+    font-size:12px;
+    color:#888;
+}
+
+.card.delay{
+    border-left:5px solid red !important;
+    background:#ffecec;
+}
+
+.card.delay .timer{
+    color:red;
+}

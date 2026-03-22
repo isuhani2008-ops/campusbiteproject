@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CampusBite | Chef Dashboard</title>
+
+<link rel="stylesheet" href="../css/chef_dashboard.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>CampusBite</h2>
+<ul>
+<li onclick="show('orders')">Orders</li>
+<li onclick="show('menu')">Menu</li>
+<li onclick="show('history')">Order History</li>
+<li onclick="show('analytics')">Analytics</li>
+<li onclick="show('staff')">Staff</li>
+<li onclick="show('inventory')">Inventory</li>
+<li onclick="show('feedback')">Feedback</li>
+<li onclick="show('notifications')">Notifications</li>
+<li onclick="show('settings')">Settings</li>
+</ul>
+</div>
+<div id="orders" class="section" style="display:none;">
+    <h2>📦 Live Order Tracking</h2>
+
+    <!-- STATUS -->
+    <p id="orderStatus">No active order</p>
+
+    <!-- ETA -->
+    <p id="etaTime">⏳ Estimated Delivery: --</p>
+
+    <!-- CHEF -->
+    <p id="chefInfo">👨‍🍳 Prepared by: --</p>
+
+    <!-- LOCATION -->
+    <p id="deliveryLocation">📍 Location: Waiting for update...</p>
+
+    <!-- PROGRESS -->
+    <div class="tracking-steps">
+        <div class="step">Order Placed</div>
+        <div class="step">Preparing</div>
+        <div class="step">Out for Delivery</div>
+        <div class="step">Delivered</div>
+    </div>
+</div>
+
+<div class="main">
+
+<!-- ORDERS -->
+<div id="orders" class="page active">
+
+<h2>📋 Orders Management</h2>
+
+<div class="board">
+
+<div class="col" id="pending"><h3>🆕 Pending</h3></div>
+<div class="col" id="prep"><h3>🔥 Preparing</h3></div>
+<div class="col" id="ready"><h3>✅ Ready</h3></div>
+<div class="col" id="done"><h3>🚚 Delivered</h3></div>
+
+</div>
+
+</div>
+
+<!-- MENU -->
+<div id="menu" class="page">
+<h2>Menu Management</h2>
+
+<input id="dish" placeholder="Dish name">
+<input id="price" placeholder="Price">
+<button onclick="addDish()">Add</button>
+
+<div id="menuList"></div>
+</div>
+
+<!-- HISTORY -->
+<div id="history" class="page">
+<h2>Order History</h2>
+<ul id="historyList"></ul>
+</div>
+
+<!-- ANALYTICS -->
+<div id="analytics" class="page">
+<h2>Analytics</h2>
+<p>Total Orders: <span id="totalOrders">0</span></p>
+</div>
+
+<!-- STAFF -->
+<div id="staff" class="page">
+<h2>Staff Coordination</h2>
+<ul>
+<li>Chef A - Cooking</li>
+<li>Chef B - Idle</li>
+</ul>
+</div>
+
+<!-- INVENTORY -->
+<div id="inventory" class="page">
+<h2>Inventory</h2>
+<ul>
+<li>Buns - 20</li>
+<li>Cheese - 10</li>
+</ul>
+</div>
+
+<!-- FEEDBACK -->
+<div id="feedback" class="page">
+<h2>Feedback & Ratings</h2>
+<p>⭐ 4.5 Avg Rating</p>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div id="notifications" class="page">
+<h2>Notifications</h2>
+<ul id="notify"></ul>
+</div>
+
+<!-- SETTINGS -->
+<div id="settings" class="page">
+<h2>Profile & Settings</h2>
+<p>Chef Name: Admin</p>
+</div>
+
+</div>
+
+<script src="../js/chef.js"></script>
+</body>
+</html>
+    
+</body>
+</html>

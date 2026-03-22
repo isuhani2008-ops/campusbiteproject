@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Canteen | Admin Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet" href="../css/admin_dashboard.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo-section">
+<img src="https://cdn-icons-png.flaticon.com/512/5787/5787100.png">
+<h2>Smart Canteen</h2>
+</div>
+
+<ul>
+
+<li onclick="showSection('dashboard')">
+<i class="fas fa-home"></i> Dashboard
+</li>
+
+<li onclick="showSection('menu')">
+<i class="fas fa-utensils"></i> Manage Menu
+</li>
+
+<li onclick="showSection('orders')">
+<i class="fas fa-box"></i> Orders
+</li>
+
+<li onclick="showSection('analytics')">
+<i class="fas fa-chart-line"></i> Analytics
+</li>
+
+<li onclick="showSection('inventory')">
+<i class="fas fa-warehouse"></i> Inventory
+</li>
+
+<li onclick="showSection('staff')">
+<i class="fi fi-ss-user-chef"></i> Staff
+</li>
+
+<li onclick="showSection('feedback')">
+<i class="fas fa-star"></i> Feedback
+</li>
+
+<li onclick="showSection('notifications')">
+<i class="fas fa-bell"></i> Notifications
+</li>
+
+<li onclick="showSection('settings')">
+<i class="fas fa-cog"></i> Settings
+</li>
+
+<li onclick="toggleTheme()">
+<i class="fas fa-moon"></i> Theme
+</li>
+
+<li onclick="logoutAdmin()">
+<i class="fas fa-sign-out-alt"></i> Logout
+</li>
+
+</ul>
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+<!-- DASHBOARD -->
+
+<div id="dashboard" class="section">
+
+<h1>Welcome Admin 👋</h1>
+
+<div class="cards">
+
+<div class="card">
+<i class="fas fa-receipt"></i>
+<h3>Total Orders</h3>
+<p>124</p>
+</div>
+
+<div class="card">
+<i class="fas fa-hamburger"></i>
+<h3>Menu Items</h3>
+<p>18</p>
+</div>
+
+<div class="card">
+<i class="fas fa-rupee-sign"></i>
+<h3>Revenue</h3>
+<p>₹42,350</p>
+</div>
+
+<div class="card">
+<i class="fas fa-clock"></i>
+<h3>Pending Orders</h3>
+<p>6</p>
+</div>
+
+<div class="card">
+<i class="fas fa-fire"></i>
+<h3>Top Item</h3>
+<p>Burger</p>
+</div>
+
+</div>
+
+<div class="chart-box">
+
+<h2>Weekly Sales</h2>
+
+<canvas id="salesChart"></canvas>
+
+</div>
+
+</div>
+
+<!-- MENU -->
+
+<!-- ========================= -->
+<!-- MANAGE MENU SECTION -->
+<!-- ========================= -->
+
+<div id="menu" class="section menu-section" style="display:none;">
+
+<div class="menu-header">
+
+<div class="menu-title">
+<img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+<h2>Manage Menu</h2>
+</div>
+
+<div class="menu-actions">
+<input type="text" placeholder="🔍 Search food item">
+<button class="add-food-btn">+ Add New Food</button>
+</div>
+<input id="dish" placeholder="Dish name">
+<input id="price" placeholder="Price">
+<button onclick="addDish()">Add Dish</button>
+
+<div id="menuList"></div>
+
+</div>
+
+
+<!-- ADD FOOD FORM -->
+
+<div class="add-food-form">
+
+<h3>Add New Food Item</h3>
+
+<input type="text" placeholder="Food Name">
+
+<input type="number" placeholder="Price ₹">
+
+<input type="text" placeholder="Image URL">
+
+<select>
+<option>Main Course</option>
+<option>Snacks</option>
+<option>Drinks</option>
+<option>Desserts</option>
+</select>
+
+<textarea placeholder="Food Description"></textarea>
+
+<button class="submit-btn">Add Item</button>
+
+</div>
+
+
+<!-- FOOD MENU GRID -->
+
+<div class="menu-grid">
+
+<!-- FOOD CARD -->
+
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+
+<div class="food-info">
+
+<h3>Burger</h3>
+
+<p class="category">🍔 Fast Food</p>
+
+<p class="price">₹120</p>
+
+<p class="desc">Crispy chicken burger with cheese</p>
+
+<div class="food-actions">
+
+<button class="edit-btn">Edit</button>
+
+<button class="delete-btn">Delete</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="food-card">
+
+<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/ba/f5/c6/the-best-pizza-we-ever.jpg?w=1200&h=1200&s=1">
+
+<div class="food-info">
+
+<h3>Pizza</h3>
+
+<p class="category">🍕 Italian</p>
+
+<p class="price">₹220</p>
+
+<p class="desc">Cheesy farmhouse pizza</p>
+
+<div class="food-actions">
+
+<button class="edit-btn">Edit</button>
+
+<button class="delete-btn">Delete</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+
+<div class="food-info">
+
+<h3>Pasta</h3>
+
+<p class="category">🍝 Italian</p>
+
+<p class="price">₹180</p>
+
+<p class="desc">Creamy white sauce pasta</p>
+
+<div class="food-actions">
+
+<button class="edit-btn">Edit</button>
+
+<button class="delete-btn">Delete</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+<!-- ORDERS -->
+
+<!-- ========================= -->
+<!-- ORDERS SECTION -->
+<!-- ========================= -->
+
+<div id="orders" class="section orders-section" style="display:none;">
+
+<div class="orders-header">
+
+<h2>🛒 Active Orders</h2>
+
+<div class="order-filters">
+<button class="filter-btn">All</button>
+<button class="filter-btn pending">Pending</button>
+<button class="filter-btn preparing">Preparing</button>
+<button class="filter-btn ready">Ready</button>
+<button class="filter-btn completed">Completed</button>
+</div>
+
+</div>
+
+
+<div class="orders-container">
+
+<!-- ORDER CARD -->
+
+<div class="order-card pending">
+
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+
+<div class="order-info">
+
+<h3>Order #101</h3>
+
+<p><strong>Customer:</strong> Rahul Sharma</p>
+
+<p><strong>Items:</strong> Burger, Fries, Coke</p>
+
+<p><strong>Total:</strong> ₹249</p>
+
+<p><strong>Payment:</strong> Paid</p>
+
+<p class="timer">⏱ Prep Time: 10 min</p>
+
+<span class="status-badge pending-badge">Pending</span>
+
+<div class="order-actions">
+
+<button class="accept-btn">Accept</button>
+<button class="cancel-btn">Cancel</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ORDER CARD -->
+
+<div class="order-card preparing">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ24UIVHxGEASxoLszlD5rvJYWlorYDX8D-7g&s">
+
+<div class="order-info">
+
+<h3>Order #102</h3>
+
+<p><strong>Customer:</strong> Anjali Verma</p>
+
+<p><strong>Items:</strong> Pizza, Cold Coffee</p>
+
+<p><strong>Total:</strong> ₹399</p>
+
+<p><strong>Payment:</strong> Paid</p>
+
+<p class="timer">⏱ Prep Time: 15 min</p>
+
+<span class="status-badge preparing-badge">Preparing</span>
+
+<div class="order-actions">
+
+<button class="ready-btn">Mark Ready</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ORDER CARD -->
+
+<div class="order-card ready">
+
+<img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92">
+
+<div class="order-info">
+
+<h3>Order #103</h3>
+
+<p><strong>Customer:</strong> Karan Singh</p>
+
+<p><strong>Items:</strong> Pasta, Shake</p>
+
+<p><strong>Total:</strong> ₹299</p>
+
+<p><strong>Payment:</strong> Paid</p>
+
+<p class="timer">⏱ Prep Time: Completed</p>
+
+<span class="status-badge ready-badge">Ready</span>
+
+<div class="order-actions">
+
+<button class="deliver-btn">Deliver</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- ANALYTICS -->
+<!-- ========================= -->
+<!-- ANALYTICS SECTION -->
+<!-- ========================= -->
+
+<div id="analytics" class="section analytics-section" style="display:none;">
+
+<div class="analytics-header">
+<h2>📊 Sales Analytics</h2>
+<button class="export-btn">Export Report</button>
+</div>
+
+
+<!-- STAT CARDS -->
+
+<div class="analytics-cards">
+
+<div class="analytics-card">
+<i class="fas fa-rupee-sign"></i>
+<h3>Total Revenue</h3>
+<p>₹42,350</p>
+</div>
+
+<div class="analytics-card">
+<i class="fas fa-shopping-cart"></i>
+<h3>Total Orders</h3>
+<p>324</p>
+</div>
+
+<div class="analytics-card">
+<i class="fas fa-fire"></i>
+<h3>Top Item</h3>
+<p>Burger</p>
+</div>
+
+<div class="analytics-card">
+<i class="fas fa-clock"></i>
+<h3>Peak Time</h3>
+<p>1PM - 3PM</p>
+</div>
+
+</div>
+
+
+<!-- CHARTS -->
+
+<div class="charts-grid">
+
+<div class="chart-card">
+<h3>Daily Sales</h3>
+<canvas id="dailyChart"></canvas>
+</div>
+
+<div class="chart-card">
+<h3>Monthly Revenue</h3>
+<canvas id="monthlyChart"></canvas>
+</div>
+
+</div>
+
+
+<!-- TOP ITEMS TABLE -->
+
+<div class="top-items">
+
+<h3>🔥 Top Selling Items</h3>
+
+<table>
+
+<tr>
+<th>Item</th>
+<th>Orders</th>
+<th>Revenue</th>
+</tr>
+
+<tr>
+<td>Burger</td>
+<td>120</td>
+<td>₹14,400</td>
+</tr>
+
+<tr>
+<td>Pizza</td>
+<td>95</td>
+<td>₹20,900</td>
+</tr>
+
+<tr>
+<td>Pasta</td>
+<td>65</td>
+<td>₹11,700</td>
+</tr>
+
+<tr>
+<td>Cold Coffee</td>
+<td>52</td>
+<td>₹6,240</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- INVENTORY -->
+
+<!-- ========================= -->
+<!-- INVENTORY SECTION -->
+<!-- ========================= -->
+
+<div id="inventory" class="section" style="display:none;">
+
+<div class="inventory-header">
+
+<h2>📦 Inventory Management</h2>
+
+<div>
+<input type="text" placeholder="🔍 Search item">
+<button class="add-inventory-btn">+ Add Item</button>
+</div>
+
+</div>
+
+
+<!-- INVENTORY SUMMARY CARDS -->
+
+<div class="inventory-cards">
+
+<div class="inventory-card">
+<i class="fas fa-box"></i>
+<h3>Total Items</h3>
+<p>45</p>
+</div>
+
+<div class="inventory-card">
+<i class="fas fa-check-circle"></i>
+<h3>In Stock</h3>
+<p>30</p>
+</div>
+
+<div class="inventory-card">
+<i class="fas fa-exclamation-triangle"></i>
+<h3>Low Stock</h3>
+<p>10</p>
+</div>
+
+<div class="inventory-card">
+<i class="fas fa-times-circle"></i>
+<h3>Out of Stock</h3>
+<p>5</p>
+</div>
+
+</div>
+
+
+<!-- INVENTORY TABLE -->
+
+<div class="inventory-table">
+
+<table>
+
+<tr>
+<th>Item</th>
+<th>Category</th>
+<th>Stock</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+
+<tr>
+<td>Burger Bun</td>
+<td>Bakery</td>
+<td>50</td>
+<td><span class="stock-status in-stock">In Stock</span></td>
+<td class="inventory-actions">
+<button class="edit-stock">Edit</button>
+<button class="delete-stock">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>Cheese</td>
+<td>Dairy</td>
+<td>8</td>
+<td><span class="stock-status low-stock">Low Stock</span></td>
+<td class="inventory-actions">
+<button class="edit-stock">Edit</button>
+<button class="delete-stock">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>Coffee Powder</td>
+<td>Beverage</td>
+<td>0</td>
+<td><span class="stock-status out-stock">Out of Stock</span></td>
+<td class="inventory-actions">
+<button class="edit-stock">Edit</button>
+<button class="delete-stock">Delete</button>
+</td>
+</tr>
+
+<tr>
+<td>Tomatoes</td>
+<td>Vegetables</td>
+<td>20</td>
+<td><span class="stock-status in-stock">In Stock</span></td>
+<td class="inventory-actions">
+<button class="edit-stock">Edit</button>
+<button class="delete-stock">Delete</button>
+</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- ADD NEW INVENTORY FORM -->
+
+<div class="inventory-form">
+
+<h3>Add New Inventory Item</h3>
+
+<input type="text" placeholder="Item Name">
+
+<input type="text" placeholder="Category">
+
+<input type="number" placeholder="Stock Quantity">
+
+<input type="text" placeholder="Supplier Name">
+
+<button>Add Item</button>
+
+</div>
+
+</div>
+
+
+<!-- STAFF -->
+
+<div id="staff" class="section" style="display:none;">
+
+<h2>Staff Management</h2>
+
+<div class="staff-grid">
+
+<div class="staff-card">
+
+<img src="https://randomuser.me/api/portraits/men/45.jpg">
+
+<h3>Rajesh Kumar</h3>
+
+<p>Head Chef</p>
+
+<p>Experience: 8 Years</p>
+
+</div>
+
+<div class="staff-card">
+
+<img src="https://randomuser.me/api/portraits/women/65.jpg">
+
+<h3>Priya Sharma</h3>
+
+<p>Assistant Chef</p>
+
+<p>Experience: 5 Years</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FEEDBACK -->
+
+<div id="feedback" class="section" style="display:none;">
+
+<h2>Customer Feedback</h2>
+
+<div class="review">
+
+<p>"Burger was amazing!"</p>
+
+⭐ ⭐ ⭐ ⭐ ⭐
+
+</div>
+
+<div class="review">
+
+<p>"Delivery was slow"</p>
+
+⭐ ⭐ ⭐
+
+</div>
+
+</div>
+
+<!-- NOTIFICATIONS -->
+<div id="notifications" class="section notifications-section" style="display:none;">
+
+<h2>🔔 Notifications Center</h2>
+
+<div class="notification-controls">
+    <button class="mark-all">Mark All Read</button>
+    <button class="clear-all">Clear All</button>
+</div>
+
+<div class="notification-list">
+
+    <div class="notification unread success">
+        <i class="fas fa-check-circle"></i>
+        <div>
+            <p><strong>New Order Received</strong></p>
+            <span>Order #104 placed just now</span>
+        </div>
+        <span class="time">1 min ago</span>
+    </div>
+
+    <div class="notification unread warning">
+        <i class="fas fa-exclamation-triangle"></i>
+        <div>
+            <p><strong>Low Stock Alert</strong></p>
+            <span>Cheese is running low</span>
+        </div>
+        <span class="time">10 min ago</span>
+    </div>
+
+    <div class="notification info">
+        <i class="fas fa-user"></i>
+        <div>
+            <p><strong>Staff Update</strong></p>
+            <span>Rajesh started shift</span>
+        </div>
+        <span class="time">30 min ago</span>
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<div id="settings" class="section" style="display:none;">
+
+<h2>Settings</h2>
+
+<input type="text" placeholder="Canteen Name">
+
+<input type="time"> Opening Time
+
+<input type="time"> Closing Time
+
+<button>Save Settings</button>
+
+</div>
+
+</div>
+</div>
+
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

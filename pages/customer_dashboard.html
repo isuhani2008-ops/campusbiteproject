@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CampusBite</title>
+
+<link rel="stylesheet" href="../css/customer_dashboard.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  
+
+<header class="navbar">
+
+    <!-- LOGO -->
+    <div class="logo">
+        <img src="../images/logo.png">
+        <span>CampusBite</span>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+        <span>🔍</span>
+        <input id="search" placeholder="Search dishes..." onkeyup="searchFood()">
+    </div>
+
+    <!-- PROFILE -->
+    <div class="profile">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV1hAM4owtkAUDWBO0pgLD2kt2mPJZu-fxUw&s" onclick="toggleProfileMenu()">
+
+        <div class="profile-menu" id="profileMenu">
+            <p>👤 Sia</p>
+            <p onclick="toggleTheme()">🌙 Toggle Theme</p>
+            <p>⚙️ Settings</p>
+            <p>🚪 Logout</p>
+        </div>
+    </div>
+
+</header>
+
+<div class="greeting-box">
+    <h2 id="greeting"></h2>
+    <p>What would you like to eat today? 🍕</p>
+</div>
+
+<h2>🍽️ Categories</h2>
+<div class="categories" id="categories"></div>
+
+<h2>🔥 Menu</h2>
+<div class="grid" id="menu"></div>
+
+<h2 class="wishlist-title">❤️ Your Wishlist</h2>
+<div class="grid" id="wishlist"></div>
+
+   
+
+    
+
+<!-- 🔥 HERO SECTION -->
+<section class="hero">
+    <h1>Delicious food, delivered fast 🍔</h1>
+    <p>Explore categories & order your favorites</p>
+</section>
+
+<h2>🛒 Cart</h2>
+<div id="cartItems"></div>
+<h3>Total: ₹<span id="total">0</span></h3>
+<button onclick="proceedPayment()" class="pay-btn">Proceed to Payment 💳</button>
+
+<!-- PAYMENT MODAL -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+
+        <h2>Choose Payment Method 💳</h2>
+
+        <!-- OPTIONS -->
+        <button onclick="showQR()">📱 QR Code</button>
+        <button onclick="showUPI()">💳 UPI Payment</button>
+        <button onclick="cashOnDelivery()">💵 Cash on Delivery</button>
+
+        <!-- QR SECTION -->
+        <div id="qrSection" class="payment-section">
+            <p>Scan to Pay</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay">
+            <br><br>
+            <button onclick="confirmOrder()">Payment Done ✅</button>
+        </div>
+
+        <!-- UPI SECTION -->
+        <div id="upiSection" class="payment-section">
+            <input type="text" id="upiId" placeholder="Enter UPI ID (example@upi)">
+            <button onclick="payUPI()">Pay Now 💳</button>
+        </div>
+
+    </div>
+</div>
+  <!-- Contact Info -->
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>📧 support@campusbite.com</p>
+            <p>📞 +91 98765 43210</p>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#">🌐</a>
+                <a href="#">📘</a>
+                <a href="#">📸</a>
+                <a href="#">🐦</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Campusbite. All Rights Reserved.</p>
+    </div>
+</footer>
+<p onclick="logout()">🚪 Logout</p>
+
+<script src="../js/customer.js"></script>
+
+</body>
+</html>

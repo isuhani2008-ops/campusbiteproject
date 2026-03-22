@@ -1,0 +1,513 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg,#b4b4b4,#fafafa);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: rgba(255,255,255,0.2);
+}
+
+.categories {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 15px;
+}
+
+.category {
+    text-align: center;
+    cursor: pointer;
+}
+
+.category img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+}
+
+.card {
+    width: 200px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: 120px;
+}
+
+button {
+    padding: 6px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.pay-btn {
+    background: green;
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    margin: 100px auto;
+    width: 300px;
+    text-align: center;
+}
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(15px);
+}
+
+/* SEARCH BAR */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 30px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    width: 100%;
+}
+
+/* PROFILE */
+.profile {
+    position: relative;
+}
+
+.profile img {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.profile-menu p {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.profile-menu p:hover {
+    background: #f1f1f1;
+}
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    padding: 50px;
+    color: white;
+    background: linear-gradient(135deg,#ff6a00,#ee0979);
+}
+
+.hero h1 {
+    font-size: 32px;
+}
+
+/* CARDS IMPROVEMENT */
+.card {
+    transition: 0.3s;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* BUTTON IMPROVEMENT */
+button {
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.wishlist-title {
+    font-size: 24px;
+    margin-left: 20px;
+    color: #ff4757;
+    font-weight: bold;
+}
+
+#wishlist .card {
+    border: 2px solid #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+    position: relative;
+}
+
+#wishlist .card::before {
+    content: "❤️";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+}
+.modal-content button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.modal-content button:hover {
+    background: #ff6b81;
+    color: white;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* LOGO IMAGE */
+.logo img {
+    height: 45px;
+    width: auto;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.logo:hover img {
+    transform: scale(1.1);
+}
+
+/* TEXT STYLE */
+.logo span {
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+
+    background-clip: text;              /* standard */
+    -webkit-background-clip: text;      /* chrome/safari */
+
+    color: transparent;                 /* fallback */
+    -webkit-text-fill-color: transparent;
+}
+.logo img {
+    box-shadow: 0 4px 15px rgba(255, 100, 100, 0.4);
+}
+.greeting-box {
+    margin: 20px;
+    padding: 25px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.greeting-box h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.greeting-box p {
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
+}
+
+/* SEARCH */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 25px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    width: 100%;
+}
+
+/* PROFILE */
+.profile {
+    position: relative;
+}
+
+.profile img {
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* DROPDOWN */
+.profile-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 150px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.profile-menu p {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.profile-menu p:hover {
+    background: #f1f1f1;
+}
+/* PAYMENT MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: 100px auto;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* BUTTONS */
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* SECTIONS */
+.payment-section {
+    display: none;
+    margin-top: 15px;
+}
+
+.payment-section input {
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+/* CONTACT SECTION */
+#contact {
+    padding: 80px 10%;
+    background: linear-gradient(to right, #ff5722, #ff9800);
+    color: white;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact-subtitle {
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+/* CONTACT CONTENT */
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* CONTACT INFO */
+.contact-info {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.contact-card {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card h3 {
+    margin-bottom: 10px;
+    color: #ff5722;
+}
+
+/* CONTACT FORM */
+.contact-form {
+    flex: 1;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.contact-btn {
+    background: black;
+    color: white;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background: #222;
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+    background: linear-gradient(to right, #111, #222);
+    color: white;
+    padding: 60px 10% 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff5722;
+    margin-bottom: 15px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    color: #ff9800;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* LINKS */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ff5722;
+}

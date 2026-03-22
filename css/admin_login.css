@@ -1,0 +1,116 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: url("https://images.unsplash.com/photo-1499028344343-cd173ffc68a9") no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Overlay for background blur */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 0;
+}
+
+/* Wrapper */
+.login-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login Box */
+.login-box {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Brand & Logo */
+.brand {
+    font-size: 36px;
+    font-weight: 900;
+    color: #ffcc70;
+}
+
+.admin-logo {
+    width: 80px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Headings */
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.tagline {
+    font-size: 14px;
+    font-style: italic;
+    color: #eee;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(45deg, #ff512f, #dd2476);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .login-box {
+        padding: 30px 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
